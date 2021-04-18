@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: 'development',
-  devtool: false,
-  entry: 'src/index.js',
+  entry: './src/index.js',
   output: {
     publicPath: 'localhost://8081'
   },
@@ -14,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: '/\.js$/',
+        test: '/\.jsx?$/',
         exclude: /node_modules/, // 不打包不编译node_modules文件夹
         use: [
           {
@@ -28,27 +27,6 @@ module.exports = {
           }
         ]
       },
-      {
-        test: '\./png$/',
-        type: 'assets/resource', // 对标file-loader
-      },
-      {
-        test: '\./ico$/',
-        type: 'assets/inline', // 对标url-loader 模块大小<limit base64字符串
-      },
-      {
-        test: '\./txt$/',
-        type: 'assets/source', // 对标raw-loader
-      },
-      {
-        test: '\./jpg$/',
-        type: 'assets', // 对标raw-loader, 模块大小<limit inline 否则resource
-        parser: {
-          dataurlCondition: {
-            maxSize: 4 * 1024,
-          }
-        }
-      }
     ]
   },
   plugins: [
