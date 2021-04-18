@@ -4,20 +4,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: 'development',
   devtool: false,
-  entry: 'src/index.js',
+  entry: './src/index.js',
   optimization: {
-    moduleIds: 'determinal', // 模块名称生成规则
-    chunckIds: 'determinal', // 代码块名称生成规则
+    moduleIds: 'deterministic', // 模块名称生成规则
+    chunkIds: 'deterministic', // 代码块名称生成规则
   },
   resolve: {
-    fallcack: {
+    fallback: {
       'crypto': false,
       'stream': false,
       'buffer': false,
     }
   },
   output: {
-    fileName: '[name].js', // 入口代码块文件名称生成规则
+    filename: '[name].js', // 入口代码块文件名称生成规则
     chunkFilename: '[name].js', // 非入口代码块文件名称生成规则
   },
   cache: {
@@ -46,19 +46,19 @@ module.exports = {
         ]
       },
       {
-        test: '\./png$/',
+        test: '/\.png$/',
         type: 'assets/resource', // 对标file-loader
       },
       {
-        test: '\./ico$/',
+        test: '/\.ico$/',
         type: 'assets/inline', // 对标url-loader 模块大小<limit base64字符串
       },
       {
-        test: '\./txt$/',
+        test: '/\.txt$/',
         type: 'assets/source', // 对标raw-loader
       },
       {
-        test: '\./jpg$/',
+        test: '/\.jpg$/',
         type: 'assets', // 对标raw-loader, 模块大小<limit inline 否则resource
         parser: {
           dataurlCondition: {
