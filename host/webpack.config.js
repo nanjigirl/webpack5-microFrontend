@@ -5,28 +5,11 @@ module.exports = {
   mode: 'development',
   devtool: false,
   entry: 'src/index.js',
-  optimization: {
-    moduleIds: 'determinal', // 模块名称生成规则
-    chunckIds: 'determinal', // 代码块名称生成规则
-  },
-  resolve: {
-    fallcack: {
-      'crypto': false,
-      'stream': false,
-      'buffer': false,
-    }
-  },
   output: {
-    fileName: '[name].js', // 入口代码块文件名称生成规则
-    chunkFilename: '[name].js', // 非入口代码块文件名称生成规则
-  },
-  cache: {
-    // 不使用cnpm安装
-    type: 'filesystem', // memory（内存存储） filesystem(硬盘存储，持久化)
-    // cacheDirectionary: path.resolve(__dirname, 'node_modules/.cache/webpack'),
+    publicPath: 'localhost://8081'
   },
   devServer: {
-    port: 8080,
+    port: 8081,
   },
   module: {
     rules: [
