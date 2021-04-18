@@ -1,1 +1,7 @@
-node_modules
+host/node_modules
+host/dist
+host/package-lock.json
+
+remote/node_modules
+remote/dist
+remote/package-lock.json
