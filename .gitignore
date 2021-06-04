@@ -5,3 +5,7 @@ host/package-lock.json
 remote/node_modules
 remote/dist
 remote/package-lock.json
+
+all/node_modules
+all/dist
+all/package-lock.json
